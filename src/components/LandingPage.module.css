@@ -1,0 +1,198 @@
+.landing {
+  min-height: 100vh;
+  padding: 80px 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  gap: 3.5rem;
+}
+
+.glowOuter {
+  position: absolute;
+  width: 800px; height: 800px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124,58,237,0.1) 0%, transparent 65%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.glowInner {
+  position: absolute;
+  width: 320px; height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124,58,237,0.18) 0%, transparent 70%);
+  top: 42%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* corner decorators */
+.corner {
+  position: absolute;
+  width: 32px; height: 32px;
+  pointer-events: none;
+}
+.corner::before, .corner::after {
+  content: '';
+  position: absolute;
+  background: var(--violet-light);
+}
+.corner::before { width: 100%; height: 1px; }
+.corner::after { width: 1px; height: 100%; }
+
+.cornerTL { top: 80px; left: 1.5rem; }
+.cornerTL::before { top: 0; left: 0; }
+.cornerTL::after { top: 0; left: 0; }
+
+.cornerTR { top: 80px; right: 1.5rem; }
+.cornerTR::before { top: 0; right: 0; }
+.cornerTR::after { top: 0; right: 0; }
+
+.cornerBL { bottom: 1.5rem; left: 1.5rem; }
+.cornerBL::before { bottom: 0; left: 0; }
+.cornerBL::after { bottom: 0; left: 0; }
+
+.cornerBR { bottom: 1.5rem; right: 1.5rem; }
+.cornerBR::before { bottom: 0; right: 0; }
+.cornerBR::after { bottom: 0; right: 0; }
+
+/* HERO */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  animation: slideUp 0.6s ease both;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--violet-light);
+  letter-spacing: 0.2em;
+  margin-bottom: 1.25rem;
+  opacity: 0.8;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 1.0;
+  margin-bottom: 1.5rem;
+}
+.titleLine1 {
+  display: block;
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  color: var(--text);
+  letter-spacing: 0.08em;
+}
+.titleLine2 {
+  display: block;
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  color: var(--violet-light);
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 40px rgba(168, 85, 247, 0.4);
+}
+
+.subtitle {
+  max-width: 520px;
+  font-size: 1.05rem;
+  color: var(--text-dim);
+  line-height: 1.75;
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.ctaRow {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* FEATURES */
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  max-width: 900px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  animation: slideUp 0.7s 0.1s ease both;
+}
+
+.featureCard {
+  background: var(--dark2);
+  border: 1px solid var(--border);
+  padding: 1.25rem 1.25rem 1.25rem 1.5rem;
+  position: relative;
+  transition: border-color 0.2s, background 0.2s;
+  overflow: hidden;
+}
+.featureCard::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 100%;
+  background: linear-gradient(180deg, var(--violet-light), var(--cyan));
+}
+.featureCard:hover {
+  border-color: var(--border-bright);
+  background: var(--dark3);
+}
+
+.featureIcon {
+  font-size: 1.4rem;
+  margin-bottom: 0.6rem;
+  line-height: 1;
+}
+.featureTitle {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--violet-light);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+.featureText {
+  font-size: 0.88rem;
+  color: var(--text-dim);
+  line-height: 1.55;
+}
+
+/* DATA STRIP */
+.dataStrip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  animation: slideUp 0.7s 0.2s ease both;
+}
+.dataItem {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-faint);
+  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.dataMarker {
+  color: var(--violet);
+  font-size: 0.65rem;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
